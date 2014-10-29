@@ -1,0 +1,3 @@
+repeat 36 [ repeat
+ 360 [fd 2 rt 1]
+  rt 10]

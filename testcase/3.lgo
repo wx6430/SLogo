@@ -1,0 +1,7 @@
+to a :l
+if :l > 200 [stop]
+fd :l rt 91
+a :l+1
+end
+
+a 1

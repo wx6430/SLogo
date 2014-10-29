@@ -1,0 +1,57 @@
+; 画 Koch 雪花
+; n 为级数
+; l 为当前长度
+to koch :n :l
+  ifelse :n > 0 [
+    koch :n-1 :l/3
+    lt 60
+    koch :n-1 :l/3
+    rt 120
+    koch :n-1 :l/3
+    lt 60
+    koch :n-1 :l/3
+  ] [
+    fd :l
+  ]
+end
+
+rt 90
+repeat 3 [koch 4 300 rt 360/3]
+
+def kock(l)
+{
+	if (l > 10)
+	{
+		kock(l/3);
+		lt 60;
+		kock(l/3);
+		rt 120;
+		kock(l/3);
+		lt 60;
+		kock(l/3);
+	}
+	else
+	{
+		fd l;
+	}
+}
+
+n = 3;
+while(n > 0)
+{
+	kock(300);
+	rt 120;
+	n = n - 1;
+}.
+
+def f(a)
+{
+	print a;
+}
+
+a = 5;
+while (a > 0)
+{
+	a = a - 1;
+	f(a);
+}

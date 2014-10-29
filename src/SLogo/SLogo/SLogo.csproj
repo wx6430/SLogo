@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEADFD1A-A74D-45E3-B08C-7043308E9E53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SLogo</RootNamespace>
+    <AssemblyName>SLogo</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ciloci.Flee, Version=0.9.26.0, Culture=neutral, PublicKeyToken=c8526a021ef298ed, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interpret\Control\If.cs" />
+    <Compile Include="Interpret\Control\IfElse.cs" />
+    <Compile Include="Interpret\Control\Repeat.cs" />
+    <Compile Include="Interpret\Context\IContextChain.cs" />
+    <Compile Include="Interpret\Exception\BoolConditionException.cs" />
+    <Compile Include="Interpret\Exception\EvalExpressionException.cs" />
+    <Compile Include="Helper\Stderr.cs" />
+    <Compile Include="Interpret\Context\Context.cs" />
+    <Compile Include="Interpret\Context\ContextChain.cs" />
+    <Compile Include="Interpret\Exception\InvalidProcException.cs" />
+    <Compile Include="Interpret\Exception\NestedProcedureException.cs" />
+    <Compile Include="Interpret\Exception\ProcExecException.cs" />
+    <Compile Include="Interpret\Exception\ProcStopSignal.cs" />
+    <Compile Include="Interpret\Exception\RepeatTimesException.cs" />
+    <Compile Include="Interpret\Exception\SeqNotFoundException.cs" />
+    <Compile Include="Interpret\Exception\SeriousException.cs" />
+    <Compile Include="Interpret\Exception\UnclosedSeqException.cs" />
+    <Compile Include="Interpret\Expect.cs" />
+    <Compile Include="Interpret\Executor.cs" />
+    <Compile Include="Interpret\Expression.cs" />
+    <Compile Include="Interpret\Interpreter.cs" />
+    <Compile Include="Interpret\Context\IReadOnlyContext.cs" />
+    <Compile Include="Interpret\Processor.cs" />
+    <Compile Include="Interpret\Exception\NotEnoughArgsException.cs" />
+    <Compile Include="Interpret\Exception\PrimeExecException.cs" />
+    <Compile Include="Interpret\Make.cs" />
+    <Compile Include="Interpret\Primitive\Primitive.cs" />
+    <Compile Include="Interpret\Primitive\PrimitiveCollection.cs" />
+    <Compile Include="Interpret\Primitive\PrimitiveHandler.cs" />
+    <Compile Include="Interpret\Procedure\Procedure.cs" />
+    <Compile Include="Interpret\Procedure\ProcedureCollection.cs" />
+    <Compile Include="Interpret\Variables\IllegalVarNameException.cs" />
+    <Compile Include="Interpret\Variables\ConvertVarException.cs" />
+    <Compile Include="Interpret\Variables\TypeException.cs" />
+    <Compile Include="Interpret\Variables\DoubleVariable.cs" />
+    <Compile Include="Interpret\Variables\StringVariable.cs" />
+    <Compile Include="Interpret\TokenListHelper.cs" />
+    <Compile Include="Interpret\Variables\Variable.cs" />
+    <Compile Include="Interpret\Variables\VarType.cs" />
+    <Compile Include="Lex\ITokenProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Lex\Lexer.cs" />
+    <Compile Include="Lex\Token.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Flee\Ciloci.Flee.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
